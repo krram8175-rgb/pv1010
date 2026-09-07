@@ -7,6 +7,7 @@ import { ACCENTS } from "@/lib/theme";
 import { BLUEPRINTS } from "@/lib/blueprints";
 import { resolveChapterBank } from "@/lib/chapterQuestionBanks";
 import { Textarea } from "@/components/ui/textarea";
+import { MathText } from "@/components/MathText";
 import { Atom, FlaskConical, Sigma, Dna, Cpu, BookOpen, Languages, ScrollText, ChevronLeft, ChevronRight, Pencil, Check, X, Star, FileQuestion } from "lucide-react";
 
 const ICONS = { Atom, FlaskConical, Sigma, Dna, Cpu, BookOpen, Languages, ScrollText };
@@ -148,7 +149,7 @@ export default function ChapterQuestions() {
                                 </div>
                               </div>
                             ) : (
-                              <p className="whitespace-pre-wrap text-[11px] leading-relaxed text-slate-900">{value}</p>
+                              <MathText value={value} className="text-[11px] leading-relaxed text-slate-900" />
                             )}
                           </div>
                         );

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { RF_5M_PAGES } from "@/lib/rfQuestions";
 import { Textarea } from "@/components/ui/textarea";
+import { MathText } from "@/components/MathText";
 import { Sigma, ChevronLeft, ChevronRight, Pencil, Check, X, Star } from "lucide-react";
 
 const TINTS = {
@@ -138,7 +139,7 @@ export default function RelationsFunctions5M() {
                             </div>
                           </div>
                         ) : (
-                          <p className="whitespace-pre-wrap text-[11px] leading-relaxed text-slate-900">{value}</p>
+                          <MathText value={value} className="text-[11px] leading-relaxed text-slate-900" />
                         )}
                       </div>
                     );
