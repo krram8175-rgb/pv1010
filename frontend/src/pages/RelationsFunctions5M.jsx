@@ -56,7 +56,7 @@ export default function RelationsFunctions5M() {
     <div className="min-h-screen" style={{ backgroundImage: "linear-gradient(180deg, #6FE7DD 0%, #79A9E7 52%, #9C8BEA 100%)" }}>
       <Header showBack title="Relations and Functions" subtitle="5 Marks · Part D · Q39" Icon={Sigma} bgClass="bg-violet-600" />
 
-      <main className="mx-auto max-w-2xl px-3 pb-28 pt-4 md:px-6">
+      <main className="mx-auto max-w-3xl px-3 pb-28 pt-4 md:px-6">
         <div className="space-y-6">
           {groups.map((g, gi) => (
             <section key={g.year}>
@@ -135,7 +135,7 @@ export default function RelationsFunctions5M() {
       </main>
 
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 backdrop-blur">
-        <div className="mx-auto flex max-w-2xl items-center justify-between gap-3 px-4 py-3 md:px-6">
+        <div className="mx-auto flex max-w-3xl items-center justify-between gap-3 px-4 py-3 md:px-6">
           <button
             type="button"
             onClick={() => setPage((p) => Math.max(0, p - 1))}
