@@ -78,7 +78,7 @@ export default function RelationsFunctions5M() {
                     const isEditing = editingId === id;
                     const value = textOf(id, q.text);
                     return (
-                      <div key={i} className="bg-white px-4 py-3">
+                      <div key={i} className="bg-white px-2 py-3">
                         <div className="mb-1 flex items-center gap-2">
                           <span className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-bold text-slate-900">{q.tag}</span>
                           {!isEditing && (
