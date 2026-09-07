@@ -72,7 +72,7 @@ export default function RelationsFunctions5M() {
                 </div>
               ) : (
                 <div className="bg-white px-2 py-2">
-                  <div className="overflow-hidden rounded-xl bg-slate-200 shadow-sm space-y-px">
+                  <div className="overflow-hidden rounded-xl bg-slate-300 shadow-sm space-y-px">
                   {g.questions.map((q, i) => {
                     const id = `p${page}-g${gi}-q${i}`;
                     const isEditing = editingId === id;
