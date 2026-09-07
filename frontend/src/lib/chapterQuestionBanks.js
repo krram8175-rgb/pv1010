@@ -10,8 +10,18 @@
 export const CHAPTER_QUESTION_BANKS = {
   // "math:1:3": someArrayOfPages,
   // "physics:1:2": someArrayOfPages,
+  // "math:Determinants:5": someArrayOfPages,  // label-based key also supported
 };
 
 export function getChapterBank(subjectId, ch, mark) {
   return CHAPTER_QUESTION_BANKS[`${subjectId}:${ch}:${mark}`] || null;
+}
+
+// Resolve a bank by chapter number OR chapter label (whichever is provided).
+export function resolveChapterBank({ subjectId, ch, label, mark }) {
+  if (ch != null && CHAPTER_QUESTION_BANKS[`${subjectId}:${ch}:${mark}`])
+    return CHAPTER_QUESTION_BANKS[`${subjectId}:${ch}:${mark}`];
+  if (label && CHAPTER_QUESTION_BANKS[`${subjectId}:${label}:${mark}`])
+    return CHAPTER_QUESTION_BANKS[`${subjectId}:${label}:${mark}`];
+  return null;
 }

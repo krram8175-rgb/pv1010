@@ -42,6 +42,7 @@ function App() {
             <Route path="/subject/:subjectId/chapters/:ch" element={<ChapterDetail />} />
             <Route path="/subject/:subjectId/chapters/:ch/relations-functions-5m" element={<RelationsFunctions5M />} />
             <Route path="/subject/:subjectId/chapters/:ch/q/:mark" element={<ChapterQuestions />} />
+            <Route path="/subject/:subjectId/questions" element={<ChapterQuestions />} />
             <Route path="/subject/:subjectId/papers" element={<FullPaper />} />
             <Route path="/subject/:subjectId/papers/:paperId" element={<PaperViewer />} />
           </Routes>

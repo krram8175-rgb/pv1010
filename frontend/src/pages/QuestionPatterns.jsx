@@ -207,6 +207,18 @@ export default function QuestionPatterns() {
     : (patterns[0]?.type || "mcq");
   const activeMeta = patterns.find((p) => p.type === activePattern);
 
+  // PCM: tapping a chapter opens a SEPARATE questions page (not inline expansion).
+  const isPCM = ["physics", "chemistry", "math"].includes(subjectId);
+  const openQ = (label, qno) => {
+    if (subjectId === "math" && activePattern === "5m" && label === "Relations and Functions") {
+      navigate(`/subject/${subjectId}/chapters/1/relations-functions-5m`);
+      return;
+    }
+    navigate(
+      `/subject/${subjectId}/questions?type=${activePattern}&chapter=${encodeURIComponent(label)}${qno != null ? `&q=${qno}` : ""}`
+    );
+  };
+
   const { data: questions = [] } = useQuery({
     queryKey: ["questions", subjectId, activePattern],
     queryFn: () => getQuestions(subjectId, activePattern),
@@ -385,7 +397,7 @@ export default function QuestionPatterns() {
                   <button
                     key={g.key}
                     data-testid={`chapter-group-${g.key}`}
-                    onClick={() => setSelectedKey(active ? null : g.key)}
+                    onClick={() => (isPCM ? openQ(g.label, g.qno) : setSelectedKey(active ? null : g.key))}
                     className={`group flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-left transition-all hover:-translate-y-0.5 hover:shadow-md ${
                       active ? "border-blue-500 bg-blue-50" : "border-slate-200 bg-white"
                     }`}
@@ -453,7 +465,7 @@ export default function QuestionPatterns() {
                               <button
                                 type="button"
                                 data-testid={`explicit-opt-${c.q}-${oi}`}
-                                onClick={() => setSelectedKey(oActive ? null : oKey)}
+                                onClick={() => (isPCM ? openQ(o, c.q) : setSelectedKey(oActive ? null : oKey))}
                                 className={`w-full rounded-lg border px-3 py-2 text-center text-sm font-extrabold transition-all hover:-translate-y-0.5 hover:shadow-sm ${oActive ? "border-blue-500 bg-blue-50 text-blue-700" : "border-slate-200 bg-slate-50 text-slate-900"}`}
                               >
                                 {o}
@@ -488,7 +500,7 @@ export default function QuestionPatterns() {
                         key={c.q}
                         type="button"
                         data-testid={`explicit-q${c.q}`}
-                        onClick={() => setSelectedKey(rActive ? null : `${c.q}`)}
+                        onClick={() => (isPCM ? openQ(c.label, c.q) : setSelectedKey(rActive ? null : `${c.q}`))}
                         className={`flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md ${rActive ? "border-blue-500 bg-blue-50" : "border-slate-200 bg-white"}`}
                       >
                         <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-slate-900 text-[11px] font-bold text-white">{c.q}</span>

@@ -1,19 +1,25 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { useQueryClient, useQuery } from "@tanstack/react-query";
 import { getSubject } from "@/lib/api";
 import { Header } from "@/components/Header";
 import { ACCENTS } from "@/lib/theme";
 import { BLUEPRINTS } from "@/lib/blueprints";
-import { getChapterBank } from "@/lib/chapterQuestionBanks";
+import { resolveChapterBank } from "@/lib/chapterQuestionBanks";
 import { Textarea } from "@/components/ui/textarea";
 import { Atom, FlaskConical, Sigma, Dna, Cpu, BookOpen, Languages, ScrollText, ChevronLeft, ChevronRight, Pencil, Check, X, Star, FileQuestion } from "lucide-react";
 
 const ICONS = { Atom, FlaskConical, Sigma, Dna, Cpu, BookOpen, Languages, ScrollText };
 
 export default function ChapterQuestions() {
-  const { subjectId, ch, mark } = useParams();
+  const { subjectId, ch, mark: markParam } = useParams();
+  const [searchParams] = useSearchParams();
   const queryClient = useQueryClient();
+
+  // Support both path (/chapters/:ch/q/:mark) and query (?type=&chapter=&q=) forms.
+  const mark = markParam || searchParams.get("type") || "";
+  const chapterFromQuery = searchParams.get("chapter") || "";
+  const qno = searchParams.get("q") || "";
 
   const { data: subject } = useQuery({
     queryKey: ["subject", subjectId],
@@ -25,16 +31,17 @@ export default function ChapterQuestions() {
   const accent = ACCENTS[subject?.accent] || ACCENTS.physics;
   const Icon = ICONS[subject?.icon] || Atom;
   const row = BLUEPRINTS[subjectId]?.rows.find((r) => String(r.ch) === String(ch));
-  const chapterName = row?.chapter || "Chapter";
+  const chapterName = chapterFromQuery || row?.chapter || "Chapter";
+  const markLabel = /^\d+$/.test(String(mark)) ? `${mark} Marks` : String(mark).toUpperCase();
 
-  const pages = getChapterBank(subjectId, ch, mark) || [];
+  const pages = resolveChapterBank({ subjectId, ch, label: chapterName, mark }) || [];
   const total = pages.length;
 
   const [page, setPage] = React.useState(0);
   const [edits, setEdits] = React.useState({});
   const [editingId, setEditingId] = React.useState(null);
   const [draft, setDraft] = React.useState("");
-  const STORAGE_KEY = `chq_edits_${subjectId}_${ch}_${mark}`;
+  const STORAGE_KEY = `chq_edits_${subjectId}_${ch || chapterName}_${mark}`;
 
   const groups = pages[page] || [];
 
@@ -61,7 +68,7 @@ export default function ChapterQuestions() {
       <Header
         showBack
         title={chapterName}
-        subtitle={`${mark} Marks`}
+        subtitle={qno ? `${markLabel} · Q${qno}` : markLabel}
         Icon={Icon}
         bgClass={accent.icon}
         rightSlot={
@@ -79,7 +86,7 @@ export default function ChapterQuestions() {
         {total === 0 ? (
           <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-white/60 bg-white/85 py-16 text-center shadow-sm">
             <FileQuestion className="mb-2 h-8 w-8 text-slate-400" />
-            <p className="text-sm font-bold text-slate-700">{mark}-Mark questions coming soon</p>
+            <p className="text-sm font-bold text-slate-700">{markLabel} questions coming soon</p>
             <p className="mt-1 text-xs text-slate-500">Questions for “{chapterName}” will appear here once uploaded.</p>
           </div>
         ) : (
