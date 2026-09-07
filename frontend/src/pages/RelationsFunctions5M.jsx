@@ -53,7 +53,7 @@ export default function RelationsFunctions5M() {
   const cancelEdit = () => setEditingId(null);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen" style={{ backgroundImage: "linear-gradient(180deg, #6FE7DD 0%, #79A9E7 52%, #9C8BEA 100%)" }}>
       <Header showBack title="Relations and Functions" subtitle="5 Marks · Part D · Q39" Icon={Sigma} bgClass="bg-violet-600" />
 
       <main className="mx-auto max-w-2xl px-3 pb-28 pt-4 md:px-6">
@@ -71,7 +71,8 @@ export default function RelationsFunctions5M() {
                   <p className="text-xs font-semibold text-slate-500">Questions will be added soon.</p>
                 </div>
               ) : (
-                <div className="overflow-hidden rounded-xl bg-slate-200 shadow-sm space-y-px">
+                <div className="bg-white px-2 py-2">
+                  <div className="overflow-hidden rounded-xl bg-slate-200 shadow-sm space-y-px">
                   {g.questions.map((q, i) => {
                     const id = `p${page}-g${gi}-q${i}`;
                     const isEditing = editingId === id;
@@ -125,6 +126,7 @@ export default function RelationsFunctions5M() {
                       </div>
                     );
                   })}
+                  </div>
                 </div>
               )}
             </section>
