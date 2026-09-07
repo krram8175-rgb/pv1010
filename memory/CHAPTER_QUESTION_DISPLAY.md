@@ -44,7 +44,26 @@ export const <CHAPTER>_PAGES = [
 8. Bottom pagination bar (Previous / n/total dots / Next).
 9. Shiny animated "Similarity" button (twinkling star) in the header `rightSlot`.
 
+## Math rendering (IMPORTANT — no more confusion)
+- All question text is rendered by `frontend/src/components/MathText.jsx` using **KaTeX**.
+- Wrap math in `$...$` (inline) and `$$...$$` (display/large matrices).
+- Write matrices in LaTeX, e.g. `$A = \begin{bmatrix} 0 & 6 & 7 \\ -6 & 0 & 8 \\ 7 & -8 & 0 \end{bmatrix}$`.
+  (In JS string files, backslashes must be doubled: `\\begin{bmatrix}` and row break `\\\\`.)
+- Column vector: `\begin{bmatrix} 2 \\ -2 \\ 3 \end{bmatrix}`; row vector: `\begin{bmatrix} 1 & 3 & -6 \end{bmatrix}`.
+- Use `\dfrac`, `\int` (with `\displaystyle`), `\sqrt`, `\tan^{-1}`, `\theta`, `\pi`, `\log`, `\cot`, `\csc`, etc.
+- Keep NON-math words outside `$...$` so sentences read normally.
+- Data files: `frontend/src/lib/math5mQuestions.js` (per-chapter), registered in
+  `frontend/src/lib/chapterQuestionBanks.js` under `subjectId:ChapterLabel:5m` (both `&` and `and` label variants).
+
 ## Ready-to-paste prompt for future uploads
+> "Add these Part D (5 Mark) questions for <subject> chapter '<CHAPTER>'. Render ALL math with
+> KaTeX (matrices as real 2D grids, not one line). Wrap math in $...$ and matrices in
+> \begin{bmatrix}...\end{bmatrix}. Group by year (2027 Model Papers, then 2026→2023) exactly
+> like the Relations & Functions / Matrices 5-Mark pages, with the Model/Exam + Easy + Concept
+> tags, edit pencil, pagination and Similarity button. Register it so BOTH the chapter-wise and
+> pattern flows show the same content. Follow memory/CHAPTER_QUESTION_DISPLAY.md."
+
+## Ready-to-paste prompt for future uploads (original)
 > "Add a new chapter '<CHAPTER NAME>' for <subject> <class>. Here are the questions
 > grouped by year (year, Model Paper/Exam label, and each question's tag, Qno, marks
 > and text). Display them EXACTLY like the Relations and Functions 5-Mark page —
