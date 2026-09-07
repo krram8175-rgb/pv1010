@@ -11,6 +11,8 @@ import { FileText, BarChart3, ChevronRight, FileQuestion, Lock } from "lucide-re
 
 // Trial subjects use freemium locking on the pattern pages.
 const TRIAL_SUBJECTS = ["physics", "chemistry", "math"];
+// Subjects that are FULLY unlocked (no freemium locks) on the pattern pages.
+const FULLY_UNLOCKED = ["physics"];
 // MCQ & FBK -> only the first group is free (rest locked). Other patterns keep the
 // per-pattern free counts below.
 const FREE_COUNT = {
@@ -267,8 +269,8 @@ export default function QuestionPatterns() {
     || (subjectId === "chemistry" && CHEMISTRY_CHAPTERS[activePattern])
     || (isMath6p4 && MATH_CHAPTERS["6p4m"])
     || null;
-  const freeCount = (explicitList && !isMath6p4) ? FREE_COUNT[subjectId]?.[activePattern] : undefined;
-  const trialSubject = TRIAL_SUBJECTS.includes(subjectId);
+  const freeCount = (explicitList && !isMath6p4 && !FULLY_UNLOCKED.includes(subjectId)) ? FREE_COUNT[subjectId]?.[activePattern] : undefined;
+  const trialSubject = TRIAL_SUBJECTS.includes(subjectId) && !FULLY_UNLOCKED.includes(subjectId);
   // Generic groups block: MCQ/FBK free only the first group; Maths 2M/3M/5M use the
   // per-pattern free count; everything else beyond the count is locked.
   const groupFreeCount = isMcqFbk ? 1 : FREE_COUNT[subjectId]?.[activePattern];
