@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { GraduationCap, ArrowLeft } from "lucide-react";
 
-export const Header = ({ showBack = false, title, subtitle, Icon, bgClass = "bg-blue-600", onBack }) => {
+export const Header = ({ showBack = false, title, subtitle, Icon, bgClass = "bg-blue-600", onBack, rightSlot }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -57,6 +57,7 @@ export const Header = ({ showBack = false, title, subtitle, Icon, bgClass = "bg-
               )}
             </div>
           )}
+          {rightSlot && <div className="ml-auto shrink-0">{rightSlot}</div>}
         </div>
       </header>
     );

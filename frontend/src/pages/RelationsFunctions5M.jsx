@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { RF_5M_PAGES } from "@/lib/rfQuestions";
 import { Textarea } from "@/components/ui/textarea";
-import { Sigma, ChevronLeft, ChevronRight, Pencil, Check, X } from "lucide-react";
+import { Sigma, ChevronLeft, ChevronRight, Pencil, Check, X, Star } from "lucide-react";
 
 const TINTS = {
   teal: "bg-teal-300/80",
@@ -54,7 +54,22 @@ export default function RelationsFunctions5M() {
 
   return (
     <div className="min-h-screen" style={{ backgroundImage: "linear-gradient(180deg, #6FE7DD 0%, #79A9E7 52%, #9C8BEA 100%)" }}>
-      <Header showBack title="Relations and Functions" subtitle="5 Marks · Part D · Q39" Icon={Sigma} bgClass="bg-violet-600" />
+      <Header
+        showBack
+        title="Relations and Functions"
+        subtitle="5 Marks · Part D · Q39"
+        Icon={Sigma}
+        bgClass="bg-violet-600"
+        rightSlot={
+          <button
+            type="button"
+            className="shine-btn group relative inline-flex items-center gap-1.5 overflow-hidden rounded-full bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wide text-amber-900 shadow-lg shadow-amber-500/40 ring-1 ring-white/60 transition-transform hover:scale-105 active:scale-95 md:text-xs"
+          >
+            <Star className="h-3.5 w-3.5 fill-amber-600 text-amber-700 animate-[twinkle_1.5s_ease-in-out_infinite]" />
+            VV Impo
+          </button>
+        }
+      />
 
       <main className="mx-auto max-w-3xl px-3 pb-28 pt-4 md:px-6">
         <div className="space-y-6">
