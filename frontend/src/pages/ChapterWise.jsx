@@ -16,6 +16,9 @@ const FREE_CHAPTERS = {
   math: [1, 3, 4, 12],
 };
 
+// Subjects where EVERY chapter is unlocked (PCM).
+const ALL_UNLOCKED = ["physics", "chemistry", "math"];
+
 export default function ChapterWise() {
   const { subjectId } = useParams();
   const navigate = useNavigate();
@@ -41,7 +44,7 @@ export default function ChapterWise() {
         {chapters.length ? (
           <div data-testid="chapterwise-list" className="space-y-3">
             {chapters.map((c, i) => {
-              const isFree = (FREE_CHAPTERS[subjectId] || []).includes(c.ch);
+              const isFree = ALL_UNLOCKED.includes(subjectId) || (FREE_CHAPTERS[subjectId] || []).includes(c.ch);
               return (
                 <button
                   key={c.ch}

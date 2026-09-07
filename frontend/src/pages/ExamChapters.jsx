@@ -21,6 +21,9 @@ const FORCE_LOCK_BY_EXAM = new Set(["neet:Structure of Atom", "neet:Motion in a 
 // Subjects where every chapter is locked.
 const LOCK_ALL_SUBJECTS = new Set(["biology"]);
 
+// Subjects where every chapter is UNLOCKED (PCM) — overrides all lock rules.
+const UNLOCK_ALL_SUBJECTS = new Set(["physics", "chemistry", "math"]);
+
 // Chapter names that have a ready PYQ practice bank -> maps to backend bank key.
 // Keyed by `${examId}:${subjectId}:${chapterName}`.
 const CHAPTER_BANKS = {
@@ -85,7 +88,9 @@ export default function ExamChapters() {
           </div>
           <div className="space-y-2.5">
             {chapters.map((name, i) => {
-              const locked = LOCK_ALL_SUBJECTS.has(subjectId) || FORCE_LOCK.has(name) || FORCE_LOCK_BY_EXAM.has(`${examId}:${name}`) || (i >= 2 && !EXTRA_FREE.has(name));
+              const locked = UNLOCK_ALL_SUBJECTS.has(subjectId)
+                ? false
+                : (LOCK_ALL_SUBJECTS.has(subjectId) || FORCE_LOCK.has(name) || FORCE_LOCK_BY_EXAM.has(`${examId}:${name}`) || (i >= 2 && !EXTRA_FREE.has(name)));
               const bankKey = CHAPTER_BANKS[`${examId}:${subjectId}:${name}`];
               const clickable = !locked && !!bankKey;
               return (
