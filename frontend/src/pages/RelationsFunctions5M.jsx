@@ -66,7 +66,7 @@ export default function RelationsFunctions5M() {
             className="shine-btn group relative inline-flex items-center gap-1.5 overflow-hidden rounded-full bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wide text-amber-900 shadow-lg shadow-amber-500/40 ring-1 ring-white/60 transition-transform hover:scale-105 active:scale-95 md:text-xs"
           >
             <Star className="h-3.5 w-3.5 fill-amber-600 text-amber-700 animate-[twinkle_1.5s_ease-in-out_infinite]" />
-            VV Impo
+            Similarity
           </button>
         }
       />
