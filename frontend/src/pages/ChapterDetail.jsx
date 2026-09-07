@@ -74,12 +74,16 @@ export default function ChapterDetail() {
               {parts.map((p) => {
                 const c = MARK_COLORS[p.mark] || MARK_COLORS["1"];
                 const isRF5M = subjectId === "math" && String(ch) === "1" && String(p.mark) === "5";
+                const goToQuestions = () => {
+                  if (isRF5M) navigate(`/subject/${subjectId}/chapters/${ch}/relations-functions-5m`);
+                  else navigate(`/subject/${subjectId}/chapters/${ch}/q/${p.mark}`);
+                };
                 return (
                   <div
                     key={p.key}
                     data-testid={`weightage-part-${p.key}`}
-                    onClick={() => isRF5M && navigate(`/subject/${subjectId}/chapters/${ch}/relations-functions-5m`)}
-                    className={`flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-4 shadow-sm ${isRF5M ? "cursor-pointer ring-1 ring-violet-200 transition hover:shadow-md hover:ring-violet-400" : ""}`}
+                    onClick={goToQuestions}
+                    className="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-4 shadow-sm ring-1 ring-violet-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-violet-400"
                   >
                     <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border text-sm font-extrabold ${c.badge}`}>
                       {p.mark}m
@@ -87,7 +91,7 @@ export default function ChapterDetail() {
                     <div>
                       <p className="text-sm font-extrabold text-slate-900">{p.name}</p>
                       {p.count > 1 && <p className="text-xs text-slate-500">{p.mark} × {p.count} = {p.total}</p>}
-                      {isRF5M && <p className="text-xs font-semibold text-violet-600">Tap to view questions →</p>}
+                      <p className="text-xs font-semibold text-violet-600">Tap to view questions →</p>
                     </div>
                     <span className={`ml-auto rounded-lg px-3 py-1.5 text-sm font-bold text-white ${accent.icon}`}>
                       {p.total} marks

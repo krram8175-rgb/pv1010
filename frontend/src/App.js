@@ -18,6 +18,7 @@ import NeetQuiz from "@/pages/NeetQuiz";
 import ChapterPractice from "@/pages/ChapterPractice";
 import FullPaperSolutions from "@/pages/FullPaperSolutions";
 import RelationsFunctions5M from "@/pages/RelationsFunctions5M";
+import ChapterQuestions from "@/pages/ChapterQuestions";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
             <Route path="/subject/:subjectId/chapters" element={<ChapterWise />} />
             <Route path="/subject/:subjectId/chapters/:ch" element={<ChapterDetail />} />
             <Route path="/subject/:subjectId/chapters/:ch/relations-functions-5m" element={<RelationsFunctions5M />} />
+            <Route path="/subject/:subjectId/chapters/:ch/q/:mark" element={<ChapterQuestions />} />
             <Route path="/subject/:subjectId/papers" element={<FullPaper />} />
             <Route path="/subject/:subjectId/papers/:paperId" element={<PaperViewer />} />
           </Routes>
