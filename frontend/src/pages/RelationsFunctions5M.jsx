@@ -79,8 +79,10 @@ export default function RelationsFunctions5M() {
                     const value = textOf(id, q.text);
                     return (
                       <div key={i} className="bg-white px-2 py-3">
-                        <div className="mb-1 flex items-center gap-2">
+                        <div className="mb-1 flex flex-wrap items-center gap-2">
                           <span className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-bold text-slate-900">{q.tag}</span>
+                          <span className="rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700">Easy</span>
+                          <span className="rounded bg-violet-100 px-1.5 py-0.5 text-[10px] font-bold text-violet-700">Concept</span>
                           {!isEditing && (
                             <button
                               type="button"
