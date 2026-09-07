@@ -209,13 +209,10 @@ export default function QuestionPatterns() {
     : (patterns[0]?.type || "mcq");
   const activeMeta = patterns.find((p) => p.type === activePattern);
 
-  // PCM: tapping a chapter opens a SEPARATE questions page (not inline expansion).
+  // PCM: tapping a chapter opens the SAME separate questions page (interlinked
+  // with the chapter-wise flow). Both use type + chapter label as the key.
   const isPCM = ["physics", "chemistry", "math"].includes(subjectId);
   const openQ = (label, qno) => {
-    if (subjectId === "math" && activePattern === "5m" && label === "Relations and Functions") {
-      navigate(`/subject/${subjectId}/chapters/1/relations-functions-5m`);
-      return;
-    }
     navigate(
       `/subject/${subjectId}/questions?type=${activePattern}&chapter=${encodeURIComponent(label)}${qno != null ? `&q=${qno}` : ""}`
     );

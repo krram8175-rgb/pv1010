@@ -73,11 +73,8 @@ export default function ChapterDetail() {
             <div data-testid="chapter-weightage" className="space-y-3">
               {parts.map((p) => {
                 const c = MARK_COLORS[p.mark] || MARK_COLORS["1"];
-                const isRF5M = subjectId === "math" && String(ch) === "1" && String(p.mark) === "5";
-                const goToQuestions = () => {
-                  if (isRF5M) navigate(`/subject/${subjectId}/chapters/${ch}/relations-functions-5m`);
-                  else navigate(`/subject/${subjectId}/chapters/${ch}/q/${p.mark}`);
-                };
+                const goToQuestions = () =>
+                  navigate(`/subject/${subjectId}/questions?type=${p.key}&chapter=${encodeURIComponent(row.chapter)}`);
                 return (
                   <div
                     key={p.key}
