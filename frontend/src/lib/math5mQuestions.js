@@ -25,6 +25,15 @@ const mP2    = "\\begin{bmatrix} -2 & 0 & 1 \\\\ 9 & 2 & -3 \\\\ 6 & 1 & -2 \\en
 // ---------------- 40. Matrices (Q40) ----------------
 const MATRICES = [
   [
+    P("2027", "Model Paper", "teal", [
+      { tag: "Model 1", qno: "Q40", marks: 5, text: `If $A = ${mSkewA}$, $B = ${mSymB}$ and $C = ${mColC}$, calculate $AC$, $BC$ and $(A + B)C$. Also verify that $(A + B)C = AC + BC$.` },
+      { tag: "Model 2", qno: "Q40", marks: 5, text: `For the matrices $A = ${mColA2}$ and $B = ${mRowB2}$, verify that $(AB)' = B'A'$.` },
+      { tag: "Model 3", qno: "Q40", marks: 5, text: `For the matrices $A = ${mColA2}$ and $B = ${mRowB2}$, verify that $(AB)' = B'A'$.` },
+      { tag: "Model 4", qno: "Q40", marks: 5, text: `If $A = ${mA4}$, then show that $A^3 - 23A - 40I = O$.` },
+      { tag: "Model 5", qno: "Q40", marks: 5, text: `If $A = ${mA5}$ and $B = ${mB2x3}$, then verify that $(A + B)' = A' + B'$.` },
+    ]),
+  ],
+  [
     P("2026", "Exam", "blue", [
       { tag: "Exam 1", qno: "Q40", marks: 5, text: `If $A = ${mColA1}$ and $B = ${mRowB1}$, verify that $(AB)' = B'A'$.` },
       { tag: "Exam 2", qno: "Q40", marks: 5, text: `If $A = ${mColA2}$ and $B = ${mRowB2}$, verify that $(AB)' = B'A'$.` },
