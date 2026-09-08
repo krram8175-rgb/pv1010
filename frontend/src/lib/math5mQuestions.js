@@ -43,6 +43,10 @@ const MATRICES = [
       { tag: "Exam 2", qno: "Q44", marks: 5, text: `If $A = ${mA2}$, $B = ${mB2}$ and $C = ${mC2}$, then compute $(A + B)$ and $(B - C)$. Also, verify that $A + (B - C) = (A + B) - C$.` },
       { tag: "Exam 3", qno: "Q44", marks: 5, text: `If $A = \\begin{bmatrix} 4 & \\sqrt{3} & 2 \\\\ 4 & 2 & 0 \\end{bmatrix}$ and $B = ${mB2x3}$ verify that $(A + B)' = A' + B'$.` },
     ]),
+    P("2023", "Exam", "violet", [
+      { tag: "Main Exam", qno: "Q50", marks: 5, text: `If $A = ${mSkewA}$, $B = ${mSymB}$, $C = ${mColC}$. Calculate $AC$, $BC$ and $(A + B)C$. Verify that $(A + B)C = AC + BC$.` },
+      { tag: "Supplement", qno: "Q50", marks: 5, text: `If $A = ${mA2}$, $B = ${mB2}$ and $C = ${mC2}$, compute $(A + B)$ and $(B - C)$. Verify that $A + (B - C) = (A + B) - C$.` },
+    ]),
   ],
 ];
 
