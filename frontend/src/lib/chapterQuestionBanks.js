@@ -4,14 +4,9 @@
 // Each value has the SAME shape as RF_5M_PAGES:
 //   pages -> [ year-group, ... ]  where a year-group is
 //   { year, label, tint, questions: [ { tag, qno, marks, text } ] }
-import { RF_5M_PAGES } from "@/lib/rfQuestions";
 import { MATH_5M } from "@/lib/math5mQuestions";
 
 export const CHAPTER_QUESTION_BANKS = {
-  // Relations and Functions · 5 Mark — shared by both flows (label + chapter-no keys)
-  "math:Relations and Functions:5m": RF_5M_PAGES,
-  "math:1:5m": RF_5M_PAGES,
-
   // Math Part D (5 Mark) chapters — both label variants registered so the
   // chapter-wise flow (blueprint labels) and pattern flow both resolve.
   "math:Matrices:5m": MATH_5M["Matrices"],

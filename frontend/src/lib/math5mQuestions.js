@@ -25,49 +25,23 @@ const mP2    = "\\begin{bmatrix} -2 & 0 & 1 \\\\ 9 & 2 & -3 \\\\ 6 & 1 & -2 \\en
 // ---------------- 40. Matrices (Q40) ----------------
 const MATRICES = [
   [
-    P("2027", "Model Paper", "teal", [
-      { tag: "Model 1 · Ops", qno: "Q40", marks: 5, text: "Calculate $AC$, $BC$ and $(A + B)C$. Also verify that $(A + B)C = AC + BC$.\n(Note: matrix values were missing in the original OCR.)" },
-      { tag: "Model 1 · System", qno: "Q40", marks: 5, text: "Solve the system of linear equations by matrix method:\n$4x + 3y + 2z = 60$;  $2x + 4y + 6z = 90$;  $6x + 2y + 3z = 70$." },
-      { tag: "Model 2 · Ops", qno: "Q40", marks: 5, text: "Compute $(A + B)$ and $(B - C)$. Also verify that $A + (B - C) = (A + B) - C$.\n(Note: matrix values were missing in the original OCR.)" },
-      { tag: "Model 2 · System", qno: "Q40", marks: 5, text: "Solve the system of equations $x + y + z = 6$; $y + 3z = 11$; $x - 2y + z = 0$ by matrix method." },
-      { tag: "Model 3 · Ops", qno: "Q40", marks: 5, text: `For the matrices $A = ${mColA2}$, $B = ${mRowB2}$, verify that $(AB)' = B'A'$.` },
-      { tag: "Model 3 · System", qno: "Q40", marks: 5, text: "Solve the system of linear equations by matrix method:\n$2x + 3y + 3z = 5$;  $x - 2y + z = -4$;  $3x - y - 2z = 3$." },
-      { tag: "Model 4 · Ops", qno: "Q40", marks: 5, text: `If $A = ${mA4}$, then show that $A^3 - 23A - 40I = O$.` },
-      { tag: "Model 4 · System", qno: "Q40", marks: 5, text: `Use the product $$${mP1}\\;${mP2}$$ to solve the system of equations $x - y + 2z = 1$; $2y - 3z = 1$; $3x - 2y + 4z = 9$.` },
-      { tag: "Model 5 · Ops", qno: "Q40", marks: 5, text: `If $A = ${mA5}$ and $B = ${mB2x3}$, then verify $(A + B)' = A' + B'$.` },
-      { tag: "Model 5 · System", qno: "Q40", marks: 5, text: "Solve the system of linear equations by matrix method:\n$3x - 2y + 3z = 8$;  $2x + y - z = 1$;  $4x - 3y + 2z = 4$." },
+    P("2026", "Exam", "blue", [
+      { tag: "Exam 1", qno: "Q40", marks: 5, text: `If $A = ${mColA1}$ and $B = ${mRowB1}$, verify that $(AB)' = B'A'$.` },
+      { tag: "Exam 2", qno: "Q40", marks: 5, text: `If $A = ${mColA2}$ and $B = ${mRowB2}$, verify that $(AB)' = B'A'$.` },
     ]),
   ],
   [
-    P("2026", "Exam", "blue", [
-      { tag: "Exam 1 · Ops", qno: "Q40", marks: 5, text: `If $A = ${mColA1}$ and $B = ${mRowB1}$, verify that $(AB)' = B'A'$.` },
-      { tag: "Exam 1 · System", qno: "Q40", marks: 5, text: "Solve the following system of equations using matrix method:\n$3x - 2y + 3z = 8$;  $2x + y - z = 1$;  $4x - 3y + 2z = 4$." },
-      { tag: "Exam 2 · Ops", qno: "Q40", marks: 5, text: `If $A = ${mColA2}$ and $B = ${mRowB2}$, verify that $(AB)' = B'A'$.` },
-      { tag: "Exam 2 · System", qno: "Q40", marks: 5, text: "Solve the system of equations by matrix method:\n$x - y + 2z = 7$;  $3x + 4y - 5z = -5$;  $2x - y + 3z = 12$." },
-    ]),
     P("2025", "Exam", "sky", [
-      { tag: "Exam 1 · Ops", qno: "Q40", marks: 5, text: `If $A = ${mColA1}$ and $B = ${mRowB1}$, verify that $(AB)' = B'A'$.` },
-      { tag: "Exam 1 · System", qno: "Q40", marks: 5, text: "Solve the following system of linear equations by matrix method:\n$4x + 3y + 2z = 60$;  $2x + 4y + 6z = 90$;  $6x + 2y + 3z = 70$." },
-      { tag: "Exam 2 · Ops", qno: "Q40", marks: 5, text: `If $A = ${mSkewA}$, $B = ${mSymB}$ and $C = ${mColC}$, then calculate $AC$, $BC$ and $(A + B)C$. Also verify that $(A + B)C = AC + BC$.` },
-      { tag: "Exam 2 · System", qno: "Q40", marks: 5, text: "Solve the following system of linear equations using matrix method:\n$4x + 3y + 2z = 60$;  $2x + 4y + 6z = 90$;  $6x + 2y + 3z = 70$." },
-      { tag: "Exam 3 · Ops", qno: "Q40", marks: 5, text: `If $A = ${mSkewA}$, $B = ${mSymB}$ and $C = ${mColC}$, calculate $AC$, $BC$ and $(A + B)C$. Also verify $(A + B)C = AC + BC$.` },
-      { tag: "Exam 3 · System", qno: "Q40", marks: 5, text: "Solve the following system of linear equations using matrix method:\n$x - y + 2z = 7$;  $3x + 4y - 5z = -5$;  $2x - y + 3z = 12$." },
+      { tag: "Exam 1", qno: "Q40", marks: 5, text: `If $A = ${mColA1}$ and $B = ${mRowB1}$, verify that $(AB)' = B'A'$.` },
+      { tag: "Exam 2", qno: "Q40", marks: 5, text: `If $A = ${mSkewA}$, $B = ${mSymB}$ and $C = ${mColC}$, then calculate $AC$, $BC$ and $(A + B)C$. Also verify that $(A + B)C = AC + BC$.` },
+      { tag: "Exam 3", qno: "Q40", marks: 5, text: `If $A = ${mSkewA}$, $B = ${mSymB}$ and $C = ${mColC}$, calculate $AC$, $BC$ and $(A + B)C$. Also verify $(A - B)C = AC - BC$.` },
     ]),
   ],
   [
     P("2024", "Exam", "indigo", [
-      { tag: "Exam 1 · Ops", qno: "Q40", marks: 5, text: `If $A = ${mA2}$, $B = ${mB2}$, $C = ${mC2}$, then compute $(A + B)$ and $(B - C)$. Also verify that $A + (B - C) = (A + B) - C$.` },
-      { tag: "Exam 1 · System", qno: "Q40", marks: 5, text: "Solve the following system of linear equations by matrix method:\n$x + y + z = 6$;  $y + 3z = 11$;  $x - 2y + z = 0$." },
-      { tag: "Exam 2 · Ops", qno: "Q40", marks: 5, text: `If $A = ${mA2}$, $B = ${mB2}$ and $C = ${mC2}$, then compute $(A + B)$ and $(B - C)$. Also verify that $A + (B - C) = (A + B) - C$.` },
-      { tag: "Exam 2 · System", qno: "Q40", marks: 5, text: "Solve the system of linear equations by matrix method:\n$3x - 2y + 3z = 8$;  $2x + y - z = 1$;  $4x - 3y + 2z = 4$." },
-      { tag: "Exam 3 · Ops", qno: "Q40", marks: 5, text: `If $A = ${mA24a}$ and $B = ${mB2x3}$, verify that $(A + B)' = A' + B'$.` },
-      { tag: "Exam 3 · System", qno: "Q40", marks: 5, text: "Solve the following system of linear equations using matrix method:\n$x + y + z = 6$;  $y + 3z = 11$;  $x - 2y + z = 0$." },
-    ]),
-    P("2023", "Exam", "violet", [
-      { tag: "Main Exam · Ops", qno: "Q40", marks: 5, text: `If $A = ${mSkewA}$, $B = ${mSymB}$, $C = ${mColC}$. Calculate $AC$, $BC$ and $(A + B)C$. Verify that $(A + B)C = AC + BC$.` },
-      { tag: "Main Exam · System", qno: "Q40", marks: 5, text: "Solve the following system of linear equations by matrix method:\n$3x - 2y + 3z = 8$;  $2x + y - z = 1$;  $4x - 3y + 2z = 4$." },
-      { tag: "Supplement · Ops", qno: "Q40", marks: 5, text: `If $A = ${mA2}$, $B = ${mB2}$ and $C = ${mC2}$, compute $(A + B)$ and $(B - C)$. Verify that $A + (B - C) = (A + B) - C$.` },
-      { tag: "Supplement · System", qno: "Q40", marks: 5, text: "Solve the system of linear equations using matrix method:\n$2x + 3y + 3z = 5$;  $x - 2y + z = -4$;  $3x - y - 2z = 3$." },
+      { tag: "Exam 1", qno: "Q44", marks: 5, text: `If $A = ${mA2}$, $B = ${mB2}$, $C = ${mC2}$ then compute $(A + B)$ and $(B - C)$. Also verify that $A + (B - C) = (A + B) - C$.` },
+      { tag: "Exam 2", qno: "Q44", marks: 5, text: `If $A = ${mA2}$, $B = ${mB2}$ and $C = ${mC2}$, then compute $(A + B)$ and $(B - C)$. Also, verify that $A + (B - C) = (A + B) - C$.` },
+      { tag: "Exam 3", qno: "Q44", marks: 5, text: `If $A = \\begin{bmatrix} 4 & \\sqrt{3} & 2 \\\\ 4 & 2 & 0 \\end{bmatrix}$ and $B = ${mB2x3}$ verify that $(A + B)' = A' + B'$.` },
     ]),
   ],
 ];
