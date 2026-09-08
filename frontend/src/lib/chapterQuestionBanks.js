@@ -6,11 +6,16 @@
 //   { year, label, tint, questions: [ { tag, qno, marks, text } ] }
 import { RF_5M_PAGES } from "@/lib/rfQuestions";
 import { MATH_5M } from "@/lib/math5mQuestions";
+import { MATH_6P4 } from "@/lib/math6p4Questions";
 
 export const CHAPTER_QUESTION_BANKS = {
   // Relations and Functions · 5 Mark — shared by both flows (label + chapter-no keys)
   "math:Relations and Functions:5m": RF_5M_PAGES,
   "math:1:5m": RF_5M_PAGES,
+
+  // Part E — 6 Mark Linear Programming & 4 Mark Determinants (pattern type "6p4m")
+  "math:Linear Programming:6p4m": MATH_6P4["Linear Programming"],
+  "math:Determinants:6p4m": MATH_6P4["Determinants"],
 
   // Math Part D (5 Mark) chapters — both label variants registered so the
   // chapter-wise flow (blueprint labels) and pattern flow both resolve.

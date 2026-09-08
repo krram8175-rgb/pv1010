@@ -33,7 +33,8 @@ export default function ChapterQuestions() {
   const Icon = ICONS[subject?.icon] || Atom;
   const row = BLUEPRINTS[subjectId]?.rows.find((r) => String(r.ch) === String(ch));
   const chapterName = chapterFromQuery || row?.chapter || "Chapter";
-  const markLabel = /^\d+$/.test(String(mark)) ? `${mark} Marks` : String(mark).toUpperCase();
+  const MARK_LABELS = { "6p4m": "6 / 4 Marks", numeric: "Numeric", mcq: "MCQ", fbk: "Fill in the Blanks" };
+  const markLabel = MARK_LABELS[mark] || (/^\d+$/.test(String(mark)) ? `${mark} Marks` : String(mark).toUpperCase());
 
   const pages = resolveChapterBank({ subjectId, ch, label: chapterName, mark }) || [];
   const total = pages.length;
